@@ -1,6 +1,7 @@
 import json
 import requests
 import time
+import blinkt
 
 def main():
     quit_requested = False
@@ -37,4 +38,36 @@ def get_cells():
 
     return cells
 
-main()
+def main_seq():
+    cells = get_sequence_cells()
+    # print(cells)
+    for c in cells:
+        rgbs = []
+        x = c.split("|")
+        delay = x.pop()
+        for i in x:
+            y = i.split(",")
+            rgbs.append([y[0], y[1], y[2]])
+
+        print(rgbs)
+        blinkt.clear()
+        for p in blinkt.NUM_PIXELS:
+            blinkt.set_pixel(p, rgbs[p][0], rgbs[p][1], rgbs[p][2])
+
+        blinkt.show()
+        time.sleep(float(delay))
+    print("Done")
+
+def get_sequence_cells():
+    j = requests.get('https://spreadsheets.google.com/feeds/cells/1NncutCH05S4NJTk_71p98TNo7pXz-zu3H8eGJWfJJJ4/2/public/full?alt=json')
+    x = json.loads(j.text)
+
+    cells = []
+    for e in x["feed"]["entry"]:
+        val = e["content"]["$t"]
+        if "|" in val:
+            cells.append(val)
+
+    return cells
+
+main_seq()
