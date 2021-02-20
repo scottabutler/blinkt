@@ -2,6 +2,7 @@ import json
 import requests
 import time
 import blinkt
+from utilities import set_strip
 
 def main():
     quit_requested = False
@@ -47,12 +48,15 @@ def main_seq():
         delay = x.pop()
         for i in x:
             y = i.split(",")
-            rgbs.append([y[0], y[1], y[2]])
+            rgbs.append([int(y[0]), int(y[1]), int(y[2])])
 
         print(rgbs)
         blinkt.clear()
-        for p in blinkt.NUM_PIXELS:
-            blinkt.set_pixel(p, rgbs[p][0], rgbs[p][1], rgbs[p][2])
+        for j in rgbs:
+            set_strip(blinkt, rgbs[j])
+        # for p in range(8): #  blinkt.NUM_PIXELS:
+            # blinkt.set_pixel(p, rgbs[p][0], rgbs[p][1], rgbs[p][2])
+            # print(rgbs[p][0])
 
         blinkt.show()
         time.sleep(float(delay))
