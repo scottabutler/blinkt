@@ -11,7 +11,7 @@ def police_lights_alt():
         if count == 1 or count == 3 or count == 5:
             set_strip(blinkt, [[0, 0, 255],[0, 0, 0],[0, 0, 255],[0, 0, 0],[0, 0, 255],[0, 0, 0],[0, 0, 255],[0, 0, 0]])
         elif count == 7 or count == 9 or count == 11:
-            set_strip(blinkt, [[0, 0, 0],[0, 0, 255],[0, 0, 0],[0, 0, 255],[0, 0, 0],[0, 0, 255],[0, 0, 0],[0, 0, 255]])
+            set_strip(blinkt, [[0, 0, 0],[255, 0, 0],[0, 0, 0],[255, 0, 0],[0, 0, 0],[255, 0, 0],[0, 0, 0],[255, 0, 0]])
         else:
             blinkt.clear()
 
@@ -21,6 +21,6 @@ def police_lights_alt():
             count = 0
 
         blinkt.show()
-        time.sleep(0.01)
+        time.sleep(0.05)
 
 police_lights_alt()
