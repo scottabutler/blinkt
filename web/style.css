@@ -1,0 +1,45 @@
+body {
+    background-color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(78, 78, 78);
+}
+
+#preset, #custom {
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-width: 500px;
+}
+#preset h3, #custom h3 {
+    margin-top: 0;
+}
+#preset .actions button {
+    width: 100px;
+    height: 100px;
+}
+
+.box {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 20%;
+    margin: 5px;
+    background-color: black;
+}
+
+.d-inline-block{
+    display: inline-block;
+}
+
+#custom {
+    padding: 10px;
+    margin-top: 20px;
+}
+#custom input[type=checkbox] {
+    margin-left: 14px;
+}
+#custom .actions {
+    margin-top: 20px;
+}
+#custom .actions button {
+    width: 100px;
+}
