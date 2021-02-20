@@ -1,0 +1,18 @@
+<html>
+<head>
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+<h1>My website!</h1>
+<p>
+<ol> 
+<!-- For loop logic of jinja template -->
+{%for i in range(0, len)%} 
+  
+    <li><a href="/publish/{{Items[i]}}">{{Items[i]}}</a></li> 
+{%endfor%} 
+  
+</ol> 
+</p>
+</body>
+</html>

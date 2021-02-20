@@ -13,7 +13,7 @@ def fill_from_left(blinkt, baseR, baseG, baseB, r, g, b, delay):
 def fill_from_right(blinkt, baseR, baseG, baseB, r, g, b, delay):
     blinkt.set_all(baseR, baseG, baseB)
     blinkt.show()
-    count = len(blinkt.lights)
+    count = blinkt.NUM_PIXELS
     for i in range(blinkt.NUM_PIXELS):
         blinkt.set_pixel(count-i-1, r, g, b)
         blinkt.show()
@@ -27,7 +27,7 @@ def scroll_from_left(blinkt, baseR, baseG, baseB, r, g, b, delay):
         time.sleep(delay)
 
 def scroll_from_right(blinkt, baseR, baseG, baseB, r, g, b, delay):
-    count = len(blinkt.lights)
+    count = blinkt.NUM_PIXELS
     for i in range(blinkt.NUM_PIXELS):
         blinkt.set_all(baseR, baseG, baseB)
         blinkt.set_pixel(count-i-1, r, g, b)
@@ -41,7 +41,7 @@ def rainbow(blinkt):
     count = 0
     while count < 255:
         hue = int(time.time() * 100) % 360
-        for x in range(len(blinkt.lights)):
+        for x in range(blinkt.NUM_PIXELS):
             offset = x * spacing
             h = ((hue + offset) % 360) / 360.0
             r, g, b = [int(c * 255) for c in colorsys.hsv_to_rgb(h, 1.0, 1.0)]
@@ -62,7 +62,7 @@ def rainbow_full(blinkt):
         h = ((hue + offset) % 360) / 360.0
         r, g, b = [int(c * 255) for c in colorsys.hsv_to_rgb(h, 1.0, 1.0)]
 
-        for x in range(len(blinkt.lights)):
+        for x in range(blinkt.NUM_PIXELS):
             blinkt.set_pixel(x, r, g, b)
 
         blinkt.show()
@@ -101,4 +101,4 @@ def police_lights(blinkt):
         count = count + 1
 
         blinkt.show()
-        time.sleep(0.07)
+        time.sleep(0.01)

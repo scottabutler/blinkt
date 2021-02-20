@@ -1,38 +1,34 @@
-from graphics import *
+# from graphics import *
 import time
 import json
 import requests
-import random
-import math
-from fakeblinkt import Blinkt
+# from fakeblinkt import Blinkt
 from effects import (rainbow, rainbow_full, christmas_lights, police_lights,
 fill_from_left, fill_from_right, scroll_from_left, scroll_from_right)
 from utilities import reset
 from random_blink import random_blink
-from random_fill import random_fill
-# import blinkt
+# from random_fill import random_fill
+import blinkt
 
 def main():
-    blinkt = Blinkt()
+    # blinkt = Blinkt()
     blinkt.set_clear_on_exit()
     blinkt.set_brightness(0.1)
 
-    win = GraphWin('Lights', 600, 150) # give title and dimensions
+    # win = GraphWin('Lights', 600, 150) # give title and dimensions
     # win.yUp() # make right side up coordinates!
 
-    win.setBackground("black")
+    # win.setBackground("black")
 
-    for l in blinkt.lights:
-        l.draw(win)
-
-    sin_fade(blinkt)
+    # for l in blinkt.lights:
+    #    l.draw(win)
 
     # random_fill(blinkt)
 
     # rainbow_full(blinkt)
     # rainbow_full(blinkt)
 
-    # poll(blinkt)
+    poll(blinkt)
 
     # for i in range(3):
     #     police_lights(blinkt)
@@ -42,13 +38,13 @@ def main():
     # reset(blinkt)
 
     # for _ in range(3):
-    #     fill_from_left(blinkt, 0, 0, 0, 200, 0, 100, 0.1)
-    #     time.sleep(0.5)
+    # fill_from_left(blinkt, 0, 0, 0, 200, 0, 100, 0.1)
+    #     time.sleep(0.25)
     #     reset(blinkt)
 
     # for _ in range(3):
     #     fill_from_right(blinkt, 0, 0, 0, 0, 90, 100, 0.1)
-    #     time.sleep(0.5)
+    #     time.sleep(0.25)
     #     reset(blinkt)
 
     # for _ in range(3):
@@ -65,24 +61,8 @@ def main():
     #     lights[0].setFill(color_rgb(0, a*2, a*2))
     #     time.sleep(0.1)
 
-    win.getMouse()
-    win.close()
-
-def sin_fade(blinkt):
-    # for x in range(100):
-    #     blinkt.set_all(100+x, 0+x, 30+x)
-    #     blinkt.show()
-    #     time.sleep(0.01)
-    r, g, b = random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)
-    while True:
-        t = time.time()
-        v = (math.sin(t) + 1) / 2  # Get a value between 0 and 1
-        # print(str(math.floor(r*v)))
-        blinkt.set_all(math.floor(r*v), math.floor(g*v), math.floor(b*v))
-        blinkt.show()
-        time.sleep(0.05)
-        if (r == 0):
-            r, g, b = random.randint(0, 255),random.randint(0, 255),random.randint(0, 255)
+    # win.getMouse()
+    # win.close()
 
 # Poll spreadsheet for command
 
