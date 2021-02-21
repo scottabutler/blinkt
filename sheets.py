@@ -52,8 +52,7 @@ def main_seq():
 
         print(rgbs)
         blinkt.clear()
-        for j in rgbs:
-            set_strip(blinkt, j)
+        set_strip(blinkt, rgbs)
         # for p in range(8): #  blinkt.NUM_PIXELS:
             # blinkt.set_pixel(p, rgbs[p][0], rgbs[p][1], rgbs[p][2])
             # print(rgbs[p][0])
