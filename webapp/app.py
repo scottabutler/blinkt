@@ -28,7 +28,7 @@ def custom():
 
 @app.route('/test')
 def test():
-    import flash
+    from scripts import flash
     return redirect(url_for('index'))
 
 def hex_to_rgb(hex):
