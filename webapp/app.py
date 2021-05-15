@@ -26,8 +26,8 @@ def custom():
     publish.single("BlueStar/pi", "custom:" + "|".join(rgbColours), hostname="test.mosquitto.org")
     return redirect(url_for('index'))
 
-@app.route('/test')
-def test():
+@app.route('/flash')
+def effect_flash():
     from scripts import flash
     return redirect(url_for('index'))
 
