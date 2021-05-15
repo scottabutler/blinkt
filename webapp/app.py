@@ -22,10 +22,15 @@ def custom():
     rgbColours = [];
     for h in hexColours:
         rgbColours.append(hex_to_rgb(h))
-        
+
     publish.single("BlueStar/pi", "custom:" + "|".join(rgbColours), hostname="test.mosquitto.org")
     return redirect(url_for('index'))
-    
+
+@app.route('/test')
+def test():
+    import flash
+    return redirect(url_for('index'))
+
 def hex_to_rgb(hex):
     if (len(hex) == 3):
         return str(int(hex[0:1], 16)) + "," + str(int(hex[1:2], 16)) + "," + str(int(hex[2:3], 16))

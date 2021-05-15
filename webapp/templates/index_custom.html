@@ -1,6 +1,6 @@
 <html>
 <head>
-    <link rel="stylesheet" href="./static/style.css" />
+    <link rel="stylesheet" href="../static/style.css" type="text/css" />
     <title>Raspberry Pi - Blinkt! Control Panel</title>
     <script type="text/javascript">
         const indexes = ["0", "1", "2", "3", "4", "5", "6", "7"];
@@ -68,6 +68,15 @@
             });
             sendGetRequest('/publish/custom?c=' + hexColours.join());
         }
+
+        function clearCustomColours() {
+            selectNone();
+            const wrapper = document.getElementById("custom");
+            wrapper.querySelectorAll(".box").forEach((b) => {
+                b.style.backgroundColor = "#000";
+            });
+            sendGetRequest('/publish/clear');
+        }
     </script>
 </head>
 <body onload="setUp()">
@@ -125,7 +134,7 @@
         <br />
         <input id="picker" type="color"/>
         <button onclick="applyCustomColours()">Apply</button>
-        <button onclick="window.location.href='/publish/clear'">Clear</button>
+        <button onclick="clearCustomColours()">Clear</button>
     </div>
 </body>
 </html>
