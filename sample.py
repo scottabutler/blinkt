@@ -1,34 +1,37 @@
-# from graphics import *
+from graphics import *
 import time
 import json
 import requests
-# from fakeblinkt import Blinkt
+from fakeblinkt import Blinkt
 from effects import (rainbow, rainbow_full, christmas_lights, police_lights,
-fill_from_left, fill_from_right, scroll_from_left, scroll_from_right)
+fill_from_left, fill_from_right, scroll_from_left, scroll_from_right, police_lights_alt)
 from utilities import reset
 from random_blink import random_blink
+# from police_lights_alt import police_lights_alt
 # from random_fill import random_fill
-import blinkt
+# import blinkt
 
 def main():
-    # blinkt = Blinkt()
+    blinkt = Blinkt()
     blinkt.set_clear_on_exit()
     blinkt.set_brightness(0.1)
 
-    # win = GraphWin('Lights', 600, 150) # give title and dimensions
+    win = GraphWin('Lights', 600, 150) # give title and dimensions
     # win.yUp() # make right side up coordinates!
 
-    # win.setBackground("black")
+    win.setBackground("black")
 
-    # for l in blinkt.lights:
-    #    l.draw(win)
+    for l in blinkt.lights:
+       l.draw(win)
 
     # random_fill(blinkt)
 
     # rainbow_full(blinkt)
     # rainbow_full(blinkt)
 
-    poll(blinkt)
+    # poll(blinkt)
+
+    police_lights_alt(blinkt)
 
     # for i in range(3):
     #     police_lights(blinkt)
@@ -61,8 +64,8 @@ def main():
     #     lights[0].setFill(color_rgb(0, a*2, a*2))
     #     time.sleep(0.1)
 
-    # win.getMouse()
-    # win.close()
+    win.getMouse()
+    win.close()
 
 # Poll spreadsheet for command
 

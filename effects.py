@@ -102,3 +102,21 @@ def police_lights(blinkt):
 
         blinkt.show()
         time.sleep(0.01)
+
+def police_lights_alt(blinkt):
+    count = 0
+    while count < 12:
+        if count == 1 or count == 3 or count == 5:
+            set_strip(blinkt, [[0, 0, 255],[0, 0, 0],[0, 0, 255],[0, 0, 0],[0, 0, 255],[0, 0, 0],[0, 0, 255],[0, 0, 0]])
+        elif count == 7 or count == 9 or count == 11:
+            set_strip(blinkt, [[0, 0, 0],[255, 0, 0],[0, 0, 0],[255, 0, 0],[0, 0, 0],[255, 0, 0],[0, 0, 0],[255, 0, 0]])
+        else:
+            blinkt.clear()
+
+        count = count + 1
+
+        if (count >= 13):
+            count = 0
+
+        blinkt.show()
+        time.sleep(0.01)
