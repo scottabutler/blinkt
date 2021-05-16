@@ -22,6 +22,7 @@
                 const b = wrapper.querySelector("#box_" + index);
                 const colour = event.target.value;
                 b.style.backgroundColor = colour;
+                b.style.boxShadow = "0 0 5px 2px " + colour;
                 b.setAttribute("data-hex-colour", colour);
             });
         }
@@ -74,6 +75,7 @@
             const wrapper = document.getElementById("custom");
             wrapper.querySelectorAll(".box").forEach((b) => {
                 b.style.backgroundColor = "#000";
+                b.style.boxShadow = "none";
             });
             sendGetRequest('/publish/clear');
         }
