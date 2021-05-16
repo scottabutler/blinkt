@@ -29,7 +29,12 @@ def custom():
 @app.route('/flash')
 def effect_flash():
     from scripts import flash
+    flash.run()
     return redirect(url_for('index'))
+
+@app.route('/shutdown')
+def shutdown():
+    Flask.request.environ.get('werkzeug.server.shutdown')()
 
 def hex_to_rgb(hex):
     if (len(hex) == 3):

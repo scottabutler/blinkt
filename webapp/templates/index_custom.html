@@ -79,11 +79,16 @@
             });
             sendGetRequest('/publish/clear');
         }
+
+        function shutdown() {
+            clearCustomColours();
+            sendGetRequest('/shutdown');
+        }
     </script>
 </head>
 <body onload="setUp()">
     <h1>Blinkt! Control Panel</h1>
-    <div id="preset">
+    <div id="preset" class="card">
         <h3>Preset patterns</h3>
         <div class="actions">
             <button onclick="sendGetRequest('/publish/red')">Red</button>
@@ -92,7 +97,7 @@
         </div>
     </div>
 
-    <div id="custom">
+    <div id="custom" class="card">
         <h3>Custom colours</h3>
         <div class="d-inline-block">
             <div class="box" id="box_0"></div>
@@ -138,6 +143,9 @@
         <input id="picker" type="color"/>
         <button onclick="applyCustomColours()">Apply</button>
         <button onclick="clearCustomColours()">Clear</button>
+    </div>
+    <div class="card">
+        <button onclick="shutdown()">Shutdown</button>
     </div>
 </body>
 </html>
