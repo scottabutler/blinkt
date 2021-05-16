@@ -139,12 +139,13 @@
             <button onclick="selectEvens()">Evens</button>
         </div>
 
-        <br />
-        <input id="picker" type="color"/>
-        <button onclick="applyCustomColours()">Apply</button>
-        <button onclick="clearCustomColours()">Clear</button>
+        <div id="picker-wrapper">
+            <input id="picker" type="color"/>
+            <button onclick="applyCustomColours()">Apply</button>
+            <button onclick="clearCustomColours()">Clear</button>
+        </div>
     </div>
-    <div class="card">
+    <div id="shutdown" class="card">
         <button onclick="shutdown()">Shutdown</button>
     </div>
 </body>

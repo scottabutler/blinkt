@@ -43,4 +43,4 @@ def hex_to_rgb(hex):
         return str(int(hex[0:2], 16)) + "," + str(int(hex[2:4], 16)) + "," + str(int(hex[4:6], 16))
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', use_reloader=False)

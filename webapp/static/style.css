@@ -6,6 +6,7 @@ body {
 
 #preset h3, #custom h3 {
     margin-top: 0;
+    margin-bottom: 10px;
 }
 #preset .actions button {
     width: 100px;
@@ -50,8 +51,19 @@ button {
     margin-right: 5px;
 }
 
+#picker-wrapper {
+    margin-top: 20px;
+}
+
 #picker {
-    margin-right: 10px;
+    margin-right: 5px;
     width: 50px;
-    height: 30px;
+    height: 27px;
+    vertical-align: bottom;
+}
+
+#shutdown button {
+    background-color: rgb(52, 28, 36);
+    border: 1px solid rgb(161, 64, 76);
+    color: rgb(230, 30, 54);
 }
